@@ -7,14 +7,14 @@
    ansible_httpapi_use_ssl: no
    ansible_httpapi_validate_certs: no
    ansible_httpapi_port: 80
-    tasks:
-  - name: get firewall interface
-    fortios_json_generic:
-      vdom:  "{{ vdom }}"
-      json_generic:
+   tasks:
+   - name: get firewall interface
+     fortios_json_generic:
+       vdom:  "{{ vdom }}"
+       json_generic:
             method: "PUT"
             path: "/api/v2/cmdb/system/interface/port1"
-    register: info
+       register: info
 
-  - name: display vars
-    debug: msg="{{info}}"
+   - name: display vars
+     debug: msg="{{info}}"
