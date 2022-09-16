@@ -9,9 +9,7 @@
     vdom: "root"
   tasks:
   - name: Get managed Access-Points
-    fortios_system_global:
-      vdom:  "{{ vdom }}"
-      fortios_configuration_fact:
+    fortios_configuration_fact:
         selectors:
           - selector: wireless-controller_wtp
           - selector: wireless-controller_vap
