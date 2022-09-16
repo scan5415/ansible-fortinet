@@ -1,3 +1,4 @@
 ---
 
   - name: ansible.netcommon
+  - name: fortinet.fortios
