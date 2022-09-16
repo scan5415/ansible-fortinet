@@ -2,11 +2,6 @@
 
 - name: "test"
   hosts: test-fgt
-  vars_promt:
-  - name: nat_needed
-    prompt: Is NAT needed [yes;no]?
-    private: no
-    default: no
   collections:
   - fortinet.fortios
   connection: httpapi
