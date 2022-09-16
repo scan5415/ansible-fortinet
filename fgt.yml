@@ -7,6 +7,11 @@
   connection: httpapi
   vars:
     vdom: "root"
+  vars_promt:
+  - name: nat_needed
+    prompt: Is NAT needed [yes;no]?
+    private: no
+    default: no
   tasks:
   - name: Get managed Access-Points
     fortios_configuration_fact:
