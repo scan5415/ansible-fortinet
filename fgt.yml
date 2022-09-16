@@ -13,3 +13,7 @@
         selectors:
           - selector: wireless-controller_wtp
           - selector: wireless-controller_vap
+    register: managed_ap
+  - name: Write Output
+    debug:
+      msg: "Folgende APs: {{ managed_ap }}"
