@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+    - name: print facts
+      debug:
+        msg: "IPv6 address: {{ ansible_default_ipv6.address }}"
