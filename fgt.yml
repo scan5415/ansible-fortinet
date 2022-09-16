@@ -1,20 +1,16 @@
-- hosts: test-fgt
-  connection: httpapi
+---
+- hosts: fortigates
   collections:
-  - fortinet.fortios
+   - fortinet.fortios
+  connection: httpapi
   vars:
    vdom: "root"
    ansible_httpapi_use_ssl: no
    ansible_httpapi_validate_certs: no
    ansible_httpapi_port: 80
-   tasks:
-   - name: get firewall interface
-     fortios_json_generic:
-       vdom:  "{{ vdom }}"
-       json_generic:
-            method: "PUT"
-            path: "/api/v2/cmdb/system/interface/port1"
-       register: info
-
-   - name: display vars
-     debug: msg="{{info}}"
+  tasks:
+  - name: Configure global attributes.
+    fortios_system_global:
+      vdom:  "{{ vdom }}"
+      system_global:
+        hostname: "FortiGate02"
