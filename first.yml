@@ -1,20 +1,20 @@
-- hosts: test-fgt
-  connection: httpapi
-  collections:
-  - fortinet.fortios
+---
+- hosts: all
   vars:
-   vdom: "root"
-   ansible_httpapi_use_ssl: no
-   ansible_httpapi_validate_certs: no
-   ansible_httpapi_port: 80
-    tasks:
-  - name: get firewall interface
-    fortios_json_generic:
-      vdom:  "{{ vdom }}"
-      json_generic:
-            method: "PUT"
-            path: "/api/v2/cmdb/system/interface/port1"
-    register: info
+    - user: ansible
+  tasks:
+    - name: Check if file already exists
+      command: ls /home/{{ user }}/myfile
+      register: file_exists
+      ignore_errors: yes
 
-  - name: display vars
-    debug: msg="{{info}}"
+    - name: create file for user
+      file:
+        path: /home/{{ user }}/myfile
+        state: touch
+      when: file_exists is failed
+
+    - name: show message if file exists
+      debug:
+        msg: The user file already exists.
+      when: file_exists is succeeded
