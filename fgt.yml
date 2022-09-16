@@ -7,6 +7,13 @@
   connection: httpapi
   vars:
     vdom: "root"
+  vars_promt:
+    - name: nat_needed
+      prompt: Is NAT to connect AP needed?
+      private: no
+    - name: nat_address
+      prompt: (if yes), NAT IP-Range (e.g. 10.17.10.0)?
+      private: no
   tasks:
   - name: Get managed Access-Points
     fortios_configuration_fact:
