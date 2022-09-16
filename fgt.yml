@@ -1,7 +1,6 @@
 ---
 
-- name: "test"
-  hosts: test-fgt
+- hosts: test-fgt
   collections:
   - fortinet.fortios
   connection: httpapi
