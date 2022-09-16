@@ -11,8 +11,7 @@
   - name: Get managed Access-Points
     fortios_configuration_fact:
         selectors:
-          - selector: wireless-controller_wtp
-          - selector: wireless-controller_vap
+          - selector: wireless-controller_wtp-status
     register: managed_ap
   - name: Write Output
     debug:
